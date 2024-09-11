@@ -7,6 +7,8 @@ public class BehaviourTreeEditor : EditorWindow
 {
     [SerializeField]
     private VisualTreeAsset m_VisualTreeAsset = default;
+    private BehaviourTreeView treeView;
+    private InspeactorView inspeactorView;
 
     [MenuItem("BehaviourTreeEditor/Editor ...")]
     public static void OpenWindow()
@@ -31,6 +33,11 @@ public class BehaviourTreeEditor : EditorWindow
 
     private void OnSelectionChange()
     {
-        
+        BehaviourTree tree = Selection.activeObject as BehaviourTree;
+        if (tree)
+        {
+            treeView.PopulateView(tree);
+        }
+
     }
 }

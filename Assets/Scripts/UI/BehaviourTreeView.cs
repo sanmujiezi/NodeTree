@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -8,6 +9,7 @@ using UnityEngine.UIElements;
 public class BehaviourTreeView : GraphView
 {
     public new class UxmlFactory : UxmlFactory<BehaviourTreeView, GraphView.UxmlTraits> { }
+    BehaviourTree tree;
 
     public BehaviourTreeView()
     {
@@ -23,5 +25,21 @@ public class BehaviourTreeView : GraphView
         styleSheets.Add(styleSheet);
     }
 
+    public void PopulateView(BehaviourTree tree)
+    {
+        this.tree = tree;
 
+        DeleteElements(graphElements);
+        tree.nodes.ForEach(n => CreateNodeView(n));
+
+    }
+
+    
+
+
+    private void CreateNodeView(Node n)
+    {
+        NodeView nodeView = new NodeView(n);
+        AddElement(nodeView);
+    }
 }
