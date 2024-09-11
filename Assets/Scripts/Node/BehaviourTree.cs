@@ -24,6 +24,7 @@ public class BehaviourTree : ScriptableObject
         Node node = ScriptableObject.CreateInstance(type) as Node;
         node.name = type.Name;
         node.guid = GUID.Generate().ToString();
+
         nodes.Add(node);
 
         AssetDatabase.AddObjectToAsset(node, this);

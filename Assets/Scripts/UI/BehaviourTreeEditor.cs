@@ -29,13 +29,22 @@ public class BehaviourTreeEditor : EditorWindow
         // Instantiate UXML
         var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/UI/BehaviourTreeEditor.uss");
         root.styleSheets.Add(styleSheet);
+
+        treeView = root.Q<BehaviourTreeView>();
+        inspeactorView = root.Q<InspeactorView>();
+
+        OnSelectionChange();
     }
+
+    
 
     private void OnSelectionChange()
     {
         BehaviourTree tree = Selection.activeObject as BehaviourTree;
-        if (tree)
+        
+        if (tree != null)
         {
+            Debug.Log(tree);
             treeView.PopulateView(tree);
         }
 
