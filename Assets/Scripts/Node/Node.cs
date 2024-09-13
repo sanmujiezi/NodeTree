@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public abstract class Node : ScriptableObject
@@ -12,9 +13,9 @@ public abstract class Node : ScriptableObject
     }
 
     public State state = State.Running;
-    public bool started = false;
-    public string guid;
-    public Vector2 postion;
+    [HideInInspector] public bool started = false;
+    [HideInInspector] public string guid;
+    [HideInInspector] public Vector2 postion;
 
     public State Update()
     {
