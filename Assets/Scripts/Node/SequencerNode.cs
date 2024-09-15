@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SequencerNode : CompositeNode
@@ -31,5 +32,12 @@ public class SequencerNode : CompositeNode
 
         return current == children.Count ? State.Success : State.Running;
 
+    }
+
+    public override Node Clone()
+    {
+        SequencerNode node = Instantiate(this);
+        node.children = children.ConvertAll(c => c.Clone());
+        return node;
     }
 }

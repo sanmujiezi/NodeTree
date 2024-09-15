@@ -60,6 +60,7 @@ public class BehaviourTree : ScriptableObject
                 tempParent_R.child = child;
                 break;
         }
+        AssetDatabase.SaveAssets();
     }
     public void RemoveChild(Node parent, Node child)
     {
@@ -78,6 +79,7 @@ public class BehaviourTree : ScriptableObject
                 tempParent_R.child = null;
                 break;
         }
+        AssetDatabase.SaveAssets();
     }
 
     public List<Node> GetChildren(Node parent)
@@ -98,6 +100,13 @@ public class BehaviourTree : ScriptableObject
                 break;
         }
         return children;
+    }
+
+    public BehaviourTree Clone()
+    {
+        BehaviourTree tree = Instantiate(this);
+        tree.rootNode = rootNode.Clone();
+        return tree;
     }
 
 }

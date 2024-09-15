@@ -68,8 +68,6 @@ public class BehaviourTreeView : GraphView
                 }
 
             });
-
-
         });
 
     }
@@ -97,6 +95,8 @@ public class BehaviourTreeView : GraphView
                     NodeView parentView = edge.output.node as NodeView;
                     NodeView childView = edge.input.node as NodeView;
                     tree.RemoveChild(parentView.node, childView.node);
+                    EditorUtility.SetDirty(parentView.node);
+                    
                 }
             });
         }
@@ -108,11 +108,9 @@ public class BehaviourTreeView : GraphView
                 NodeView parentNode = edge.output.node as NodeView;
                 NodeView childNode = edge.input.node as NodeView;
                 tree.AddChild(parentNode.node, childNode.node);
-
             });
         }
-
-
+        
 
         return graphViewChange;
     }
