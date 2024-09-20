@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 2
   started: 0
   guid: 24bf70b35e837914394e87f07b50751e
-  postion: {x: 205, y: 90.880005}
+  postion: {x: -64.13965, y: 431.753}
   message: "\u7B2C\u4E8C\u4E2A"
 --- !u!114 &-5661844277163402796
 MonoBehaviour:
@@ -32,7 +32,7 @@ MonoBehaviour:
   state: 2
   started: 0
   guid: e6be09ce4a9161e45bd2197d349194e2
-  postion: {x: 188, y: -103.119995}
+  postion: {x: -422.13965, y: 423.75293}
   message: "\u7B2C\u4E00\u4E2A"
 --- !u!114 &-5021604013060229115
 MonoBehaviour:
@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Name: RepeatNode
   m_EditorClassIdentifier: 
   state: 0
-  started: 0
+  started: 1
   guid: bc4c8cf3af5230148a347b03b722fbf6
-  postion: {x: -30, y: 200}
-  child: {fileID: 0}
+  postion: {x: -204, y: 63}
+  child: {fileID: 2843165305812135721}
 --- !u!114 &-573869697882738850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,10 +63,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b941a7f87bc00449fe848332a26db0, type: 3}
   m_Name: WaitNode
   m_EditorClassIdentifier: 
-  state: 2
-  started: 0
+  state: 0
+  started: 1
   guid: 22c10cc0ccdab6542b5c9aad704182f7
-  postion: {x: 205, y: 199.88}
+  postion: {x: -592.13965, y: 421.753}
   duration: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -105,7 +105,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c00abe08582d55b47a3095af22357e12
-  postion: {x: -232.30002, y: 48.253998}
+  postion: {x: -205.99997, y: -28.999977}
   child: {fileID: -5021604013060229115}
 --- !u!114 &1183214174340298684
 MonoBehaviour:
@@ -122,7 +122,7 @@ MonoBehaviour:
   state: 2
   started: 0
   guid: 18372f9b6d607ce4db7b664a133ab04d
-  postion: {x: 222, y: -24.119995}
+  postion: {x: -253.13971, y: 423.75293}
   duration: 1
 --- !u!114 &2843165305812135721
 MonoBehaviour:
@@ -136,9 +136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c13da29cb2e2749891ba14e085eb1b, type: 3}
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
-  state: 2
-  started: 0
+  state: 0
+  started: 1
   guid: ecd9a90d1ca276140850537e744ef18b
-  postion: {x: -76, y: 9.5}
+  postion: {x: -395.1397, y: 210.75298}
   children:
   - {fileID: -573869697882738850}
+  - {fileID: -5661844277163402796}
+  - {fileID: 1183214174340298684}
+  - {fileID: -8429337111994200018}
