@@ -18,6 +18,11 @@ public class DebugLogNode : ActionNode
     protected override State OnUpdate()
     {
         Debug.Log($"OnUpdate{message}");
+
+        Debug.Log($"Blackboard:{blackboard.moveToPostion}");
+
+        blackboard.moveToPostion.x += 1;
+
         return State.Success;
     }
 }

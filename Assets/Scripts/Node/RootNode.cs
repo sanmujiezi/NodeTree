@@ -24,7 +24,7 @@ public class RootNode : Node
     {
         RootNode node = Instantiate(this);
         node.child = child.Clone();
-        return base.Clone();
+        return node;
     }
 
 

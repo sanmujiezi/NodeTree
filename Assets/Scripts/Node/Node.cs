@@ -16,6 +16,10 @@ public abstract class Node : ScriptableObject
     [HideInInspector] public bool started = false;
     [HideInInspector] public string guid;
     [HideInInspector] public Vector2 postion;
+    [HideInInspector] public Blackborad blackboard;
+    [HideInInspector] public AiAgent agent;
+    [TextArea] public string description;
+     
 
     public State Update()
     {
@@ -44,4 +48,5 @@ public abstract class Node : ScriptableObject
     protected abstract void Onstart();
     protected abstract void OnStop();
     protected abstract State OnUpdate();
+
 }

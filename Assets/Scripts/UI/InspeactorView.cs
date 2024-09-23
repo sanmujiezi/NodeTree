@@ -19,7 +19,13 @@ public class InspeactorView : VisualElement
 
         UnityEngine.Object.DestroyImmediate(editor);
         editor = Editor.CreateEditor(nodeview.node);
-        IMGUIContainer container = new IMGUIContainer(() => { editor.OnInspectorGUI(); });
+        IMGUIContainer container = new IMGUIContainer(() =>
+        {
+            if (editor.target)
+            {
+                editor.OnInspectorGUI();
+            }
+        });
         Add(container);
     }
 }

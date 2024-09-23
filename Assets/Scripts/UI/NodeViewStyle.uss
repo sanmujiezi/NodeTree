@@ -1,0 +1,206 @@
+#node-border {
+    position: relative;
+    background-color: rgb(60, 60, 60);
+    border-left-color: rgb(47, 47, 47);
+    border-right-color: rgb(47, 47, 47);
+    border-top-color: rgb(47, 47, 47);
+    border-bottom-color: rgb(47, 47, 47);
+    opacity: 1;
+    color: rgb(200, 200, 200);
+    visibility: visible;
+    overflow: visible;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-slice-scale: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#input {
+    align-items: center;
+}
+
+#output {
+    align-items: center;
+}
+
+#selection-border {
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+    overflow: visible;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+:hover > #selection-border {
+    border-left-color: rgb(53, 136, 185);
+    border-right-color: rgb(53, 136, 185);
+    border-top-color: rgb(53, 136, 185);
+    border-bottom-color: rgb(53, 136, 185);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+:selected > #selection-border {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgb(53, 136, 185);
+    border-right-color: rgb(53, 136, 185);
+    border-top-color: rgb(53, 136, 185);
+    border-bottom-color: rgb(53, 136, 185);
+}
+
+:hover:selected > #selection-border {
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(53, 136, 185);
+    border-right-color: rgb(53, 136, 185);
+    border-top-color: rgb(53, 136, 185);
+    border-bottom-color: rgb(53, 136, 185);
+}
+
+.node {
+    min-width: 150px;
+}
+
+#title {
+    -unity-font-style: bold;
+    -unity-text-align: upper-left;
+    font-size: 16px;
+}
+
+#divider {
+    background-color: rgb(91, 91, 91);
+    min-height: 1px;
+}
+
+.action #input {
+    background-color: rgb(48, 197, 255);
+}
+
+.composite #input {
+    background-color: rgb(26, 147, 111);
+}
+
+.decorator #input {
+    background-color: rgb(151, 81, 207);
+}
+
+.root #input {
+    background-color: rgb(247, 198, 70);
+    max-height: none;
+    min-height: 20px;
+}
+
+#node-state {
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgb(60, 60, 60);
+    border-right-color: rgb(60, 60, 60);
+    border-top-color: rgb(60, 60, 60);
+    border-bottom-color: rgb(60, 60, 60);
+    border-top-width: 30px;
+    border-right-width: 30px;
+    border-bottom-width: 30px;
+    border-left-width: 30px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.running #node-state {
+    border-left-color: rgb(43, 255, 0);
+    border-right-color: rgb(43, 255, 0);
+    border-top-color: rgb(43, 255, 0);
+    border-bottom-color: rgb(43, 255, 0);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-top-width: 35px;
+    border-right-width: 35px;
+    border-bottom-width: 35px;
+    border-left-width: 35px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.failure #node-state {
+    border-left-color: rgb(255, 4, 4);
+    border-right-color: rgb(255, 4, 4);
+    border-top-color: rgb(255, 4, 4);
+    border-bottom-color: rgb(255, 4, 4);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-top-width: 35px;
+    border-right-width: 35px;
+    border-bottom-width: 35px;
+    border-left-width: 35px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.success #node-state {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(192, 135, 14);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    position: absolute;
+}
+
+#description {
+    flex-wrap: nowrap;
+    -unity-text-align: upper-left;
+    white-space: normal;
+    max-width: 150px;
+}

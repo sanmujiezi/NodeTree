@@ -8,9 +8,10 @@ public class BehaviourTreeRunner : MonoBehaviour
     public BehaviourTree tree;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         tree = tree.Clone();
+        tree.Bind(GetComponent<AiAgent>());
     }
 
     // Update is called once per frame

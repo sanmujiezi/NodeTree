@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-
+using UnityEditor.UIElements;
 public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
     public Action<NodeView> OnNodeSelected;
@@ -27,6 +28,11 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         CreateOutputPorts();
 
         SetClassList();
+
+        Label descriptionLable = this.Q<Label>("description");
+        descriptionLable.bindingPath = "description";
+        descriptionLable.Bind(new SerializedObject(node));
+
     }
 
     private void SetClassList()
@@ -90,7 +96,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
                 break;
         }
 
-        if(output != null)
+        if (output != null)
         {
             output.portName = "";
             output.style.flexDirection = FlexDirection.ColumnReverse;
@@ -101,9 +107,10 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
     public override void SetPosition(Rect newPos)
     {
         base.SetPosition(newPos);
+        Undo.RecordObject(node, "Behaviour Tree (set postion)");
         node.postion.x = newPos.xMin;
         node.postion.y = newPos.yMin;
-
+        EditorUtility.SetDirty(node);
     }
 
     public override void OnSelected()
@@ -114,4 +121,45 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
             OnNodeSelected.Invoke(this);
         }
     }
+
+    public void SortChildren()
+    {
+        CompositeNode composite = node as CompositeNode;
+        if (composite)
+        {
+            composite.children.Sort(SortByHorizontalPosition);
+        }
+    }
+
+    private int SortByHorizontalPosition(Node left, Node right)
+    {
+        return left.postion.x < right.postion.x ? -1 : 1;
+    }
+
+    public void UpdateState()
+    {
+        RemoveFromClassList("running");
+        RemoveFromClassList("failure");
+        RemoveFromClassList("success");
+
+        if (Application.isPlaying)
+        {
+            switch (node.state)
+            {
+                case Node.State.Running:
+                    if (node.started)
+                    {
+                        AddToClassList("running");
+                    }
+                    break;
+                case Node.State.Failure:
+                    AddToClassList("failure");
+                    break;
+                case Node.State.Success:
+                    AddToClassList("success");
+                    break;
+            }
+        }
+    }
+
 }

@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/NodeViewStyle.uss?fileID=7433441132597879392&amp;guid=95103a5c461253c4da3ec6ef29440fea&amp;type=3#NodeViewStyle" />
+    <ui:VisualElement name="node-state" picking-mode="Ignore" style="flex-grow: 1; left: 0; top: 0; right: 0; bottom: 0;" />
+    <ui:VisualElement name="node-border" picking-mode="Ignore" style="background-color: rgb(60, 60, 60);">
+        <ui:VisualElement name="contents" picking-mode="Ignore" style="background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="top" picking-mode="Ignore">
+                <ui:VisualElement name="input" picking-mode="Ignore" />
+                <ui:VisualElement name="divider" picking-mode="Ignore" class="horizontal" />
+                <ui:VisualElement name="title" picking-mode="Ignore" style="background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label name="title-label" text="RootNode" picking-mode="Ignore" class="unity-text-element unity-label" />
+                    <ui:VisualElement name="title-button-container" picking-mode="Ignore">
+                        <ui:VisualElement name="collapse-button">
+                            <ui:VisualElement name="icon" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Label tabindex="-1" text="This is a Description" parse-escape-sequences="true" display-tooltip-when-elided="true" name="description" picking-mode="Ignore" />
+                <ui:VisualElement name="divider" picking-mode="Ignore" class="horizontal" />
+                <ui:VisualElement name="output" picking-mode="Ignore" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="selection-border" picking-mode="Ignore" style="background-color: rgba(0, 0, 0, 0);" />
+</ui:UXML>
